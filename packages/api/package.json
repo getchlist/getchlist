@@ -1,13 +1,13 @@
 {
-  "name": "@getchlist/api",
-  "version": "0.0.1",
-  "description": "Back end for getchlist",
-  "main": "src/index.ts",
-  "repository": "https://github.com/Mateiadrielrafael/getchlist",
-  "author": "Matei Adriel",
-  "license": "GPL-3.0",
-  "private": true,
-  "dependencies": {
-    "@getchlist/shared": "0.0.1"
-  }
+    "name": "@getchlist/api",
+    "version": "0.0.1",
+    "description": "Back end for getchlist",
+    "main": "src/index.ts",
+    "repository": "https://github.com/Mateiadrielrafael/getchlist",
+    "author": "Matei Adriel",
+    "license": "GPL-3.0",
+    "private": true,
+    "dependencies": {
+        "@getchlist/shared": "0.0.1"
+    }
 }

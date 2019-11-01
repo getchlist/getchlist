@@ -1,1 +1,1 @@
-console.log("hello world from the shared stuff!");
+console.log('hello world from the shared stuff!')
