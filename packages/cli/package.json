@@ -1,0 +1,13 @@
+{
+    "name": "@getchlist/cli",
+    "version": "0.0.1",
+    "description": "The cli for generating packages",
+    "main": "src/index.ts",
+    "repository": "https://github.com/Mateiadrielrafael/getchlist",
+    "author": "Matei Adriel",
+    "license": "GPL-3.0",
+    "private": true,
+    "dependencies": {
+        "@getchlist/shared": "0.0.1"
+    }
+}

@@ -1,0 +1,19 @@
+importers:
+  packages/api:
+    dependencies:
+      '@getchlist/shared': 'link:../shared'
+    specifiers:
+      '@getchlist/shared': 0.0.1
+  packages/cli:
+    dependencies:
+      '@getchlist/shared': 'link:../shared'
+    specifiers:
+      '@getchlist/shared': 0.0.1
+  packages/shared:
+    specifiers: {}
+  packages/web:
+    dependencies:
+      '@getchlist/shared': 'link:../shared'
+    specifiers:
+      '@getchlist/shared': 0.0.1
+lockfileVersion: 5.1
