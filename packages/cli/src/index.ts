@@ -1,1 +1,1 @@
-console.log('hello world frmo the cli package')
+console.log("hello world frmo the cli package")

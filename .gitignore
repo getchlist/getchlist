@@ -1,4 +1,7 @@
-# Yarn stuff
 node_modules
 pnpm-debug.log
 dist
+
+# If somones uses the wrong manager
+package.lock.json
+yarn.lock
