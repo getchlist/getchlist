@@ -2,12 +2,44 @@
     "name": "@getchlist/web",
     "version": "0.0.1",
     "description": "The web client for getchlist",
-    "main": "src/index.ts",
+    "main": "src/index.tsx",
     "repository": "https://github.com/Mateiadrielrafael/getchlist",
     "author": "Matei Adriel",
     "license": "GPL-3.0",
     "private": true,
+    "scripts": {
+        "dev": "webpack-dev-server",
+        "build": "cross-env NODE_ENV=production webpack",
+        "build:dev": "webpack",
+        "typecheck": "tsc --noEmit"
+    },
     "dependencies": {
-        "@getchlist/shared": "0.0.1"
+        "@getchlist/shared": "0.0.1",
+        "react": "^16.11.0",
+        "react-dom": "^16.11.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.4",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/plugin-proposal-decorators": "^7.6.0",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "@babel/preset-typescript": "^7.6.0",
+        "@types/copy-webpack-plugin": "^5.0.0",
+        "@types/react": "^16.9.11",
+        "@types/react-dom": "^16.9.3",
+        "@types/webpack": "^4.39.8",
+        "@types/webpack-dev-server": "^3.4.0",
+        "babel-loader": "^8.0.6",
+        "clean-webpack-plugin": "^3.0.0",
+        "copy-webpack-plugin": "^5.0.4",
+        "cross-env": "^6.0.3",
+        "fork-ts-checker-webpack-plugin": "^3.0.1",
+        "html-webpack-inline-source-plugin": "^0.0.10",
+        "html-webpack-plugin": "^3.2.0",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0",
+        "webpack-merge": "^4.2.2"
     }
 }

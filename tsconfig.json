@@ -9,7 +9,11 @@
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
         "esModuleInterop": true,
-        "strictPropertyInitialization": true
+        "strictPropertyInitialization": true,
+        "importHelpers": true,
+        "sourceMap": true,
+        "jsx": "preserve"
     },
-    "include": ["./packages/*/src/**/*.ts"]
+    "exclude": ["node_modules"],
+    "include": ["packages/**/*", "typings/**/*"]
 }

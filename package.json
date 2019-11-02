@@ -1,0 +1,16 @@
+{
+    "name": "getchlist",
+    "version": "0.0.1",
+    "scripts": {
+        "dev:web": "pnpm run dev --filter @getchlist/web",
+        "dev": "concurrently \"npm run dev:web\"",
+        "build": "pnpm run build --filter @getchlist/*",
+        "test": "pnpm run test --filter @getchlist/*"
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.5",
+        "concurrently": "^5.0.0",
+        "tslib": "^1.10.0",
+        "typescript": "^3.6.4"
+    }
+}
