@@ -7,7 +7,15 @@
     "author": "Matei Adriel",
     "license": "GPL-3.0",
     "private": true,
+    "scripts": {
+        "start": "node -r ts-node/register src",
+        "dev": "nodemon"
+    },
     "dependencies": {
         "@getchlist/shared": "0.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.4",
+        "ts-node": "^8.4.1"
     }
 }

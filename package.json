@@ -2,6 +2,7 @@
     "name": "getchlist",
     "version": "0.0.1",
     "scripts": {
+        "dev:api": "pnpm run dev --filter @getchlist/api",
         "dev:web": "pnpm run dev --filter @getchlist/web",
         "dev": "concurrently \"npm run dev:web\"",
         "build": "pnpm run build --filter @getchlist/*",
