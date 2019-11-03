@@ -8,11 +8,12 @@
     "license": "GPL-3.0",
     "private": true,
     "scripts": {
-        "start": "node -r ts-node/register src",
+        "start": "node -r ./register.js src/index.ts",
         "dev": "nodemon"
     },
     "dependencies": {
-        "@getchlist/shared": "0.0.1"
+        "@getchlist/shared": "0.0.1",
+        "dotenv": "^8.2.0"
     },
     "devDependencies": {
         "nodemon": "^1.19.4",

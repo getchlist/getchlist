@@ -1,6 +1,7 @@
 node_modules
 pnpm-debug.log
 dist
+.env
 
 # If somones uses the wrong manager
 package.lock.json

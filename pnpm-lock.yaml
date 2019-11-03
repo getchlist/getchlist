@@ -35,11 +35,13 @@ importers:
   packages/api:
     dependencies:
       '@getchlist/shared': 'link:../shared'
+      dotenv: 8.2.0
     devDependencies:
       nodemon: 1.19.4
       ts-node: 8.4.1
     specifiers:
       '@getchlist/shared': 0.0.1
+      dotenv: ^8.2.0
       nodemon: ^1.19.4
       ts-node: ^8.4.1
   packages/cli:

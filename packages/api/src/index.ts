@@ -1,1 +1,1 @@
-console.log("hello world from the api!")
+console.log(`Hello ${process.env.USERNAME}`)
