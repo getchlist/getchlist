@@ -1,11 +1,12 @@
 // @ts-check
+const webpackMerge = require("webpack-merge")
 const { resolve } = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin")
-const webpackMerge = require("webpack-merge")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const projectRoot = resolve(__dirname)
 const sourceDirectory = resolve(projectRoot, "src")
@@ -14,9 +15,21 @@ const outputDirectory = resolve(projectRoot, "dist")
 const htmlTemplateFile = resolve(publicDirectory, "index.html")
 const tsconfigPath = resolve(projectRoot, "tsconfig.json")
 
+const production = process.env.NODE_ENV === "production"
+
 const babelRule = {
     test: /\.(js|tsx?)$/,
     use: "babel-loader"
+}
+
+const cssRule = {
+    test: /\.css$/,
+
+    use: [
+        MiniCssExtractPlugin.loader,
+        "css-loader",
+        production && "postcss-loader"
+    ].filter(Boolean)
 }
 
 /** @type {import('webpack').Configuration} */
@@ -31,7 +44,7 @@ const baseConfig = {
     },
 
     module: {
-        rules: [babelRule]
+        rules: [babelRule, cssRule]
     },
 
     resolve: {
@@ -50,6 +63,9 @@ const baseConfig = {
         }),
         new ForkTsCheckerWebpackPlugin({
             tsconfig: tsconfigPath
+        }),
+        new MiniCssExtractPlugin({
+            filename: "bundle.css"
         })
     ],
 
