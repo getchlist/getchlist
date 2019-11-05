@@ -2,10 +2,25 @@ import React from "react"
 import { Route } from "../../common/routing/types/Route"
 import { Link } from "../../common/routing/components/Link"
 
-export const routes: Route[] = [
+interface AdvancedRoute extends Route {
+    navbar?: boolean
+}
+
+export const routes: AdvancedRoute[] = [
     {
         path: "/",
-        render: () => <h1>Hello from home</h1>
+        render: () => <h1>Hello from home</h1>,
+        navbar: true
+    },
+    {
+        path: "/docs",
+        render: () => <h1>Hello from docs</h1>,
+        navbar: true
+    },
+    {
+        path: "/explore",
+        render: () => <h1>Hello from explore</h1>,
+        navbar: true
     },
     {
         path: "/account",
