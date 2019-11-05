@@ -1,5 +1,6 @@
 export interface Store {
-    init?(): Promise<unknown> | unknown
+    init?(): unknown
+    reset?(): unknown
 }
 
 export interface InitialisableStore extends Store {

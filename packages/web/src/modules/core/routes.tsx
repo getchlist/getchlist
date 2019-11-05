@@ -1,45 +1,39 @@
-import React from "react"
 import { Route } from "../../common/routing/types/Route"
-import { Link } from "../../common/routing/components/Link"
+import { Home } from "./components/Home"
+import { NavbarButtonMetadata } from "../metadata/types/NavbarButtonMetadata"
+import { pageCategory } from "../metadata/stores/metadataStore"
+import { Explore } from "./components/Explore"
+import { Docs } from "./components/Docs"
 
-interface AdvancedRoute extends Route {
-    navbar?: boolean
-}
-
-export const routes: AdvancedRoute[] = [
+export const routes: Route[] = [
     {
         path: "/",
-        render: () => <h1>Hello from home</h1>,
-        navbar: true
+        render: Home
     },
     {
         path: "/docs",
-        render: () => <h1>Hello from docs</h1>,
-        navbar: true
+        render: Docs
     },
     {
         path: "/explore",
-        render: () => <h1>Hello from explore</h1>,
-        navbar: true
+        render: Explore
+    }
+]
+
+export const navbarButtonMetadata: NavbarButtonMetadata[] = [
+    {
+        text: "Home",
+        to: "/",
+        category: pageCategory.home
     },
     {
-        path: "/account",
-        render: () => <h1>Hello from the account page!</h1>
+        text: "Explore",
+        to: "/explore",
+        category: pageCategory.explore
     },
     {
-        path: "/a",
-        render: () => (
-            <>
-                This is the a page!!! <Link to="b">Go to b</Link>
-            </>
-        )
-    },
-    {
-        path: "/b",
-        render: () => (
-            <>
-                This is the b page!!! <Link to="a">Go to a</Link>
-            </>
-        )
+        text: "Documentation",
+        to: "/docs",
+        category: pageCategory.docs
     }
 ]

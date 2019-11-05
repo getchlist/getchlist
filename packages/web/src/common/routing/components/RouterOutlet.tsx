@@ -13,11 +13,11 @@ export const RouterOutlet: React.FC<RouterOutletProps> = ({ routes }) => {
 
     const location = useObserver(() => routingStore.location)
 
-    for (const { path, render } of routes) {
+    for (const { path, render: Render } of routes) {
         const match = new UrlPattern(path).match(location.pathname)
 
         if (match) {
-            return render(match)
+            return <Render match={match} />
         }
     }
 

@@ -1,14 +1,17 @@
 import React from "react"
 import { Menu } from "antd"
-import { routes } from "../routes"
-import { useObserver } from "mobx-react-lite"
-import { useStores } from "../../../common/state/hooks/useStores"
-import UrlPattern from "url-pattern"
 import { Link } from "../../../common/routing/components/Link"
+import { useMetadata } from "../../metadata/hooks/useMetadata"
+import { NavbarButtonMetadata } from "../../metadata/types/NavbarButtonMetadata"
 
-export const Header: React.FC = () => {
-    const { routingStore } = useStores()
-    const { pathname } = useObserver(() => routingStore.location)
+interface HeaderProps {
+    buttons: NavbarButtonMetadata[]
+}
+
+export const Header: React.FC<HeaderProps> = ({ buttons }) => {
+    const { category } = useMetadata()
+
+    console.log(category)
 
     return (
         <>
@@ -17,17 +20,16 @@ export const Header: React.FC = () => {
                 theme="dark"
                 mode="horizontal"
                 selectable={false}
-                selectedKeys={routes
-                    .filter(({ path }) => new UrlPattern(pathname).match(path))
-                    .map(route => route.path)}
+                selectedKeys={buttons
+                    .filter(button => button.category === category)
+                    // Ant ui only accepts strings
+                    .map(button => String(button.category))}
             >
-                {routes
-                    .filter(route => route.navbar)
-                    .map(route => (
-                        <Menu.Item key={route.path}>
-                            <Link to={route.path}>{route.path}</Link>{" "}
-                        </Menu.Item>
-                    ))}
+                {buttons.map(button => (
+                    <Menu.Item key={String(button.category)}>
+                        <Link to={button.to}>{button.text}</Link>{" "}
+                    </Menu.Item>
+                ))}
             </Menu>
         </>
     )
