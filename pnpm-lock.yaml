@@ -64,7 +64,6 @@ importers:
       mobx-react-lite: 1.5.0_mobx@5.14.2+react@16.11.0
       react: 16.11.0
       react-dom: 16.11.0_react@16.11.0
-      react-helmet: 5.2.1_react@16.11.0
       url-pattern: 1.0.3
     devDependencies:
       '@babel/core': 7.6.4
@@ -133,7 +132,6 @@ importers:
       postcss-loader: ^3.0.0
       react: ^16.11.0
       react-dom: ^16.11.0
-      react-helmet: ^5.2.1
       url-pattern: ^1.0.3
       webpack: ^4.41.2
       webpack-cli: ^3.3.10
@@ -7697,22 +7695,6 @@ packages:
       react: ^16.0.0
     resolution:
       integrity: sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
-  /react-fast-compare/2.0.4:
-    dev: false
-    resolution:
-      integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
-  /react-helmet/5.2.1_react@16.11.0:
-    dependencies:
-      object-assign: 4.1.1
-      prop-types: 15.7.2
-      react: 16.11.0
-      react-fast-compare: 2.0.4
-      react-side-effect: 1.2.0_react@16.11.0
-    dev: false
-    peerDependencies:
-      react: '>=15.0.0'
-    resolution:
-      integrity: sha512-CnwD822LU8NDBnjCpZ4ySh8L6HYyngViTZLfBBb3NjtrpN8m49clH8hidHouq20I51Y6TpCTISCBbqiY5GamwA==
   /react-is/16.11.0:
     resolution:
       integrity: sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
@@ -7734,15 +7716,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-  /react-side-effect/1.2.0_react@16.11.0:
-    dependencies:
-      react: 16.11.0
-      shallowequal: 1.1.0
-    dev: false
-    peerDependencies:
-      react: ^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0
-    resolution:
-      integrity: sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==
   /react-slick/0.25.2_react-dom@16.11.0+react@16.11.0:
     dependencies:
       classnames: 2.2.6

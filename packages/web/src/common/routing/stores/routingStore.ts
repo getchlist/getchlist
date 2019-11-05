@@ -1,6 +1,7 @@
 import { getIsomorphicHistory } from "../helpers/getIsomorphicHistory"
 import { observable } from "mobx"
 import { Store } from "../../state/types/Store"
+import { IS_SERVER } from "../../../modules/core/constants"
 
 export enum HttpStatus {
     OK = 200,
@@ -17,5 +18,17 @@ export class RoutingStore implements Store {
         this.history.listen(location => {
             this.location = location
         })
+    }
+
+    public push(path: string) {
+        if (this.location.pathname === path) {
+            return
+        }
+
+        this.history.push(path)
+
+        if (!IS_SERVER) {
+            window.scrollTo(0, 0)
+        }
     }
 }
