@@ -1,6 +1,8 @@
 import React from "react"
 import { Layout } from "antd"
 import { logo } from "../constants"
+import { RouterOutlet } from "../../../common/routing/components/RouterOutlet"
+import { routes } from "../routes"
 
 export const Body: React.FC = () => {
     // TODO: remove inline styles
@@ -10,7 +12,9 @@ export const Body: React.FC = () => {
                 <img height="31px" src={logo}></img>
             </Layout.Header>
 
-            <Layout.Content>Content</Layout.Content>
+            <Layout.Content>
+                <RouterOutlet routes={routes} />
+            </Layout.Content>
 
             <Layout.Footer style={{ background: "#202000", color: "white" }}>
                 Footer goes here

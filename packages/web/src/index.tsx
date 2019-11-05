@@ -3,5 +3,14 @@ import { render } from "react-dom"
 import { App } from "./modules/core/components/App"
 
 import "./modules/styles/global.css"
+import { craeteManager } from "./common/state/manager"
 
-render(<App />, document.getElementById("app"))
+const main = async () => {
+    const manager = craeteManager()
+
+    await manager.init()
+
+    render(<App manager={manager} />, document.getElementById("app"))
+}
+
+main()

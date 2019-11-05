@@ -1,13 +1,23 @@
-import { Store, InitialisableStore } from "../types/Store"
+import { Store } from "../types/Store"
+import { applyToEachIfExists } from "../../lang/arrays/helpers/applyToEach"
 
-export class StoreManager {
-    public constructor(public stores: Store[]) {}
+export class StoreManager<T extends Record<string, Store>> {
+    public stores: T = ({} as unknown) as T
 
-    public init() {
-        return Promise.all(
-            this.stores
-                .filter(store => !!store.init)
-                .map(store => (store as InitialisableStore).init())
+    /**
+     * Manager to hold mroe advanced stores.
+     *
+     * @param instantiators Object of store classes to use
+     */
+    constructor(public instantiators: { [K in keyof T]: () => T[K] }) {
+        for (const [name, creator] of Object.entries(instantiators)) {
+            this.stores[name as keyof T] = creator()
+        }
+    }
+
+    public async init() {
+        await Promise.all(
+            applyToEachIfExists(Object.values(this.stores), "init")
         )
     }
 }

@@ -36,7 +36,7 @@ const cssRule = {
 const baseConfig = {
     mode: "none",
 
-    entry: resolve(sourceDirectory, "index.tsx"),
+    entry: ["babel-polyfill", resolve(sourceDirectory, "index.tsx")],
     output: {
         filename: "js/[name].js",
         path: outputDirectory,

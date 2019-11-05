@@ -59,9 +59,13 @@ importers:
     dependencies:
       '@getchlist/shared': 'link:../shared'
       antd: 3.25.0_react-dom@16.11.0+react@16.11.0
+      history: 4.10.1
+      mobx: 5.14.2
+      mobx-react-lite: 1.5.0_mobx@5.14.2+react@16.11.0
       react: 16.11.0
       react-dom: 16.11.0_react@16.11.0
       react-helmet: 5.2.1_react@16.11.0
+      url-pattern: 1.0.3
     devDependencies:
       '@babel/core': 7.6.4
       '@babel/plugin-proposal-class-properties': 7.5.5_@babel+core@7.6.4
@@ -70,6 +74,7 @@ importers:
       '@babel/preset-react': 7.6.3_@babel+core@7.6.4
       '@babel/preset-typescript': 7.6.0_@babel+core@7.6.4
       '@types/copy-webpack-plugin': 5.0.0
+      '@types/history': 4.7.3
       '@types/react': 16.9.11
       '@types/react-dom': 16.9.3
       '@types/webpack': 4.39.8
@@ -77,6 +82,7 @@ importers:
       autoprefixer: 9.7.1
       babel-loader: 8.0.6_@babel+core@7.6.4+webpack@4.41.2
       babel-plugin-import: 1.12.2
+      babel-polyfill: 6.26.0
       clean-webpack-plugin: 3.0.0_webpack@4.41.2
       copy-webpack-plugin: 5.0.4_webpack@4.41.2
       cross-env: 6.0.3
@@ -101,6 +107,7 @@ importers:
       '@babel/preset-typescript': ^7.6.0
       '@getchlist/shared': 0.0.1
       '@types/copy-webpack-plugin': ^5.0.0
+      '@types/history': ^4.7.3
       '@types/react': ^16.9.11
       '@types/react-dom': ^16.9.3
       '@types/webpack': ^4.39.8
@@ -109,20 +116,25 @@ importers:
       autoprefixer: ^9.7.1
       babel-loader: ^8.0.6
       babel-plugin-import: ^1.12.2
+      babel-polyfill: ^6.26.0
       clean-webpack-plugin: ^3.0.0
       copy-webpack-plugin: ^5.0.4
       cross-env: ^6.0.3
       css-loader: ^3.2.0
       cssnano: ^4.1.10
       fork-ts-checker-webpack-plugin: ^3.0.1
+      history: ^4.10.1
       html-webpack-inline-source-plugin: ^0.0.10
       html-webpack-plugin: ^3.2.0
       mini-css-extract-plugin: ^0.8.0
+      mobx: ^5.14.2
+      mobx-react-lite: ^1.5.0
       postcss: ^7.0.21
       postcss-loader: ^3.0.0
       react: ^16.11.0
       react-dom: ^16.11.0
       react-helmet: ^5.2.1
+      url-pattern: ^1.0.3
       webpack: ^4.41.2
       webpack-cli: ^3.3.10
       webpack-dev-server: ^3.9.0
@@ -981,7 +993,6 @@ packages:
   /@babel/runtime/7.6.3:
     dependencies:
       regenerator-runtime: 0.13.3
-    dev: true
     resolution:
       integrity: sha512-kq6anf9JGjW8Nt5rYfEuGRaEAaH1mkv3Bbu6rYvLOpPh/RusSJXuKPEAoZ7L7gybZkchE8+NV5g9vKF4AGAtsA==
   /@babel/template/7.6.0:
@@ -1077,6 +1088,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-1Bh06cbWJUHMC97acuD6UMG29nMt0Aqz1vF3guLfG+kHHJhy3AyohZFFxYk2f7Q1SQIrNwvncxAE0N/9s70F2w==
+  /@types/history/4.7.3:
+    dev: true
+    resolution:
+      integrity: sha512-cS5owqtwzLN5kY+l+KgKdRJ/Cee8tlmQoGQuIE9tWnSmS3JMKzmxo2HIAk2wODMifGwO20d62xZQLYz+RLfXmw==
   /@types/http-proxy-middleware/0.19.3:
     dependencies:
       '@types/connect': 3.4.32
@@ -1798,11 +1813,18 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Vz9s+I6vAnsY8sYczU/cdtkKAHSorapa/2St6K+OzowplKizpWxul4HLi3kj1eRmHMFjhbROSMGXP+mFna2nUw==
+  /babel-polyfill/6.26.0:
+    dependencies:
+      babel-runtime: 6.26.0
+      core-js: 2.6.10
+      regenerator-runtime: 0.10.5
+    dev: true
+    resolution:
+      integrity: sha1-N5k3q8Z9eJWXCtxiHyhM2WbPIVM=
   /babel-runtime/6.26.0:
     dependencies:
       core-js: 2.6.10
       regenerator-runtime: 0.11.1
-    dev: false
     resolution:
       integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
   /balanced-match/1.0.0:
@@ -2561,7 +2583,6 @@ packages:
     resolution:
       integrity: sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
   /core-js/2.6.10:
-    dev: false
     requiresBuild: true
     resolution:
       integrity: sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA==
@@ -4322,6 +4343,17 @@ packages:
     dev: true
     resolution:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+  /history/4.10.1:
+    dependencies:
+      '@babel/runtime': 7.6.3
+      loose-envify: 1.4.0
+      resolve-pathname: 3.0.0
+      tiny-invariant: 1.0.6
+      tiny-warning: 1.0.3
+      value-equal: 1.0.1
+    dev: false
+    resolution:
+      integrity: sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==
   /hmac-drbg/1.0.1:
     dependencies:
       hash.js: 1.1.7
@@ -5684,6 +5716,20 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+  /mobx-react-lite/1.5.0_mobx@5.14.2+react@16.11.0:
+    dependencies:
+      mobx: 5.14.2
+      react: 16.11.0
+    dev: false
+    peerDependencies:
+      mobx: ^4.0.0 || ^5.0.0
+      react: ^16.8.0
+    resolution:
+      integrity: sha512-Ss8RLKKGn+QhKbfCHvQ4+RPEVKR8AnPW1wNyWzZAS3wYw7UP4FX6GdRn64sdOhrP646o/JtXbLuDuc4RH3Bqyg==
+  /mobx/5.14.2:
+    dev: false
+    resolution:
+      integrity: sha512-yx5Xe6o2WSYFgeytzZt6jGaYghJdQbd1ElR7S2s93x7/+5SYfJBfutvZF1O5gPEsUyTAFZ5IMYGu1KyhkPk+oQ==
   /moment/2.24.0:
     dev: false
     resolution:
@@ -7802,12 +7848,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-1G6jJVDWrt0rK99kBjvEtziZNCICAuvIPkSiUFIQxVP06RCVpq3dmDo2oi6ABpYaDYaTRr67BEhL8r1wgEZZKg==
+  /regenerator-runtime/0.10.5:
+    dev: true
+    resolution:
+      integrity: sha1-M2w+/BIgrc7dosn6tntaeVWjNlg=
   /regenerator-runtime/0.11.1:
-    dev: false
     resolution:
       integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
   /regenerator-runtime/0.13.3:
-    dev: true
     resolution:
       integrity: sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
   /regenerator-transform/0.14.1:
@@ -7990,6 +8038,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==
+  /resolve-pathname/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-C7rARubxI8bXFNB/hqcp/4iUeIXJhJZvFPFPiSPRnhU5UPxzMFIl+2E6yY6c4k9giDJAhtV+enfA+G89N6Csng==
   /resolve-url/0.2.1:
     resolution:
       integrity: sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
@@ -8823,6 +8875,14 @@ packages:
     dev: true
     resolution:
       integrity: sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+  /tiny-invariant/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-FOyLWWVjG+aC0UqG76V53yAWdXfH8bO6FNmyZOuUrzDzK8DI3/JRY25UD7+g49JWM1LXwymsKERB+DzI0dTEQA==
+  /tiny-warning/1.0.3:
+    dev: false
+    resolution:
+      integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
   /tinycolor2/1.4.1:
     dev: false
     resolution:
@@ -9148,6 +9208,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  /url-pattern/1.0.3:
+    dev: false
+    engines:
+      node: '>=0.12.0'
+    resolution:
+      integrity: sha1-BAkpJHGyTyPFDWWkeTF5PStaz8E=
   /url/0.11.0:
     dependencies:
       punycode: 1.3.2
@@ -9219,6 +9285,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
+  /value-equal/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==
   /vary/1.1.2:
     dev: true
     engines:
