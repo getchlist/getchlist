@@ -1,7 +1,7 @@
 import { Route } from "../../common/routing/types/Route"
 import { Home } from "./components/Home"
 import { NavbarButtonMetadata } from "../metadata/types/NavbarButtonMetadata"
-import { pageCategory } from "../metadata/stores/metadataStore"
+import { pageCategorires } from "../metadata/stores/metadataStore"
 import { Explore } from "./components/Explore"
 import { Docs } from "./components/Docs"
 
@@ -24,16 +24,16 @@ export const navbarButtonMetadata: NavbarButtonMetadata[] = [
     {
         text: "Home",
         to: "/",
-        category: pageCategory.home
+        category: pageCategorires.home
     },
     {
         text: "Explore",
         to: "/explore",
-        category: pageCategory.explore
+        category: pageCategorires.explore
     },
     {
         text: "Documentation",
         to: "/docs",
-        category: pageCategory.docs
+        category: pageCategorires.docs
     }
 ]

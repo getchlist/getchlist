@@ -1,7 +1,7 @@
-import { pageCategory } from "../stores/metadataStore"
+import { pageCategorires } from "../stores/metadataStore"
 
 export interface NavbarButtonMetadata {
     to: string
     text: string
-    category: pageCategory
+    category: pageCategorires
 }

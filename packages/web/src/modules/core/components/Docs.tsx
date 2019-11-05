@@ -1,12 +1,12 @@
 import React from "react"
 import { useStores } from "../../../common/state/hooks/useStores"
-import { pageCategory } from "../../metadata/stores/metadataStore"
+import { pageCategorires } from "../../metadata/stores/metadataStore"
 
 export const Docs: React.FC = () => {
     const { metadataStore } = useStores()
 
     metadataStore.setMetadata({
-        category: pageCategory.docs,
+        category: pageCategorires.docs,
         title: "Docs"
     })
 

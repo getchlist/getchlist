@@ -1,7 +1,7 @@
 import { observable } from "mobx"
 import { Store } from "../../../common/state/types/Store"
 
-export enum pageCategory {
+export enum pageCategorires {
     home,
     docs,
     explore
@@ -10,12 +10,12 @@ export enum pageCategory {
 export interface PageMetadata {
     title: string
     description: string
-    category: pageCategory
+    category: pageCategorires
 }
 
 const initialMetadata: PageMetadata = {
     title: "",
-    category: pageCategory.home,
+    category: pageCategorires.home,
     description: "Compose configs with ease"
 }
 
