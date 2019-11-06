@@ -1,29 +1,26 @@
 {
-    "name": "getchlist",
-    "version": "0.0.1",
-    "scripts": {
-        "dev:api": "pnpm run dev --filter @getchlist/api",
-        "dev:web": "pnpm run dev --filter @getchlist/web",
-        "dev": "concurrently \"npm run dev:web\"",
-        "build": "pnpm run build --filter @getchlist/*",
-        "test": "pnpm run test --filter @getchlist/*",
-        "lint": "eslint './packages/**/*.{ts,tsx}'"
-    },
-    "devDependencies": {
-        "@types/node": "^12.12.5",
-        "@typescript-eslint/eslint-plugin": "^2.6.0",
-        "@typescript-eslint/parser": "^2.6.0",
-        "concurrently": "^5.0.0",
-        "eslint": "^6.6.0",
-        "eslint-config-prettier": "^6.5.0",
-        "eslint-config-react": "^1.1.7",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-node": "^10.0.0",
-        "eslint-plugin-prettier": "^3.1.1",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-react": "^7.16.0",
-        "prettier": "^1.18.2",
-        "tslib": "^1.10.0",
-        "typescript": "^3.6.4"
-    }
+  "name": "getchlist",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "pnpm recursive run dev --workspace-concurrency Infinity",
+    "build": "pnpm run build --filter @getchlist/*",
+    "test": "pnpm run test --filter @getchlist/*",
+    "lint": "eslint './packages/**/*.{ts,tsx}'"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.5",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "^1.18.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.4"
+  }
 }
