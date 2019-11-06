@@ -29,7 +29,7 @@ importers:
       eslint-plugin-react: ^7.16.0
       prettier: ^1.18.2
       tslib: ^1.10.0
-      typescript: ^3.6.4
+      typescript: ^3.7.2
   packages/api:
     dependencies:
       '@getchlist/shared': 'link:../shared'
@@ -9162,7 +9162,7 @@ packages:
       node: '>=0.6.x'
     resolution:
       integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==
-  /tsutils/3.17.1_typescript@3.6.4:
+  /tsutils/3.17.1_typescript@3.7.2:
     dependencies:
       tslib: 1.10.0
       typescript: 3.7.2
