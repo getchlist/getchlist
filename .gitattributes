@@ -1,0 +1,2 @@
+# Hopefully this removes it from the github statistics
+pnpm-lock.yaml linguist-vendored -diff
