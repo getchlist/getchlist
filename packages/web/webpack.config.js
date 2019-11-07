@@ -19,7 +19,7 @@ const production = process.env.NODE_ENV === "production"
 
 const babelRule = {
     test: /\.(js|tsx?)$/,
-    use: "babel-loader"
+    use: "babel-loader?compact=false"
 }
 
 const cssRule = {
@@ -28,7 +28,14 @@ const cssRule = {
     use: [
         MiniCssExtractPlugin.loader,
         "css-loader",
-        production && "postcss-loader"
+        production && {
+            loader: "postcss-loader",
+            options: {
+                config: {
+                    path: projectRoot
+                }
+            }
+        }
     ].filter(Boolean)
 }
 
@@ -48,7 +55,7 @@ const baseConfig = {
     },
 
     resolve: {
-        extensions: [".js", ".ts", ".tsx"]
+        extensions: [".js", ".ts", ".tsx", ".css"]
     },
 
     plugins: [

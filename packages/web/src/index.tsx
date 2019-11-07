@@ -2,7 +2,7 @@ import React from "react"
 import { render } from "react-dom"
 import { App } from "./modules/core/components/App"
 
-import "./modules/styles/global.css"
+import "./modules/core/styles/global.css"
 import { craeteManager } from "./common/state/manager"
 
 const main = async () => {
