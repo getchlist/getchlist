@@ -10,4 +10,4 @@ const stores = {
 
 export type Stores = ExtractStoreReturn<typeof stores>
 
-export const craeteManager = () => new StoreManager<Stores>(stores)
+export const createManager = () => new StoreManager<Stores>(stores)

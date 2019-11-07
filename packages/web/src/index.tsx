@@ -1,12 +1,12 @@
 import React from "react"
 import { render } from "react-dom"
 import { App } from "./modules/core/components/App"
+import { createManager } from "./common/state/manager"
 
 import "./modules/core/styles/global.css"
-import { craeteManager } from "./common/state/manager"
 
 const main = async () => {
-    const manager = craeteManager()
+    const manager = createManager()
 
     await manager.init()
 
