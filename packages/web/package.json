@@ -17,7 +17,9 @@
     "dependencies": {
         "@emotion/core": "^10.0.22",
         "@emotion/styled": "^10.0.23",
+        "@emotion/styled-base": "^10.0.24",
         "@getchlist/shared": "0.0.1",
+        "emotion-theming": "^10.0.19",
         "history": "^4.10.1",
         "mobx": "^5.14.2",
         "mobx-react-lite": "^1.5.0",
