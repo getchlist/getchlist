@@ -7,6 +7,7 @@ importers:
       eslint: 6.6.0
       eslint-config-prettier: 6.5.0_eslint@6.6.0
       eslint-config-react: 1.1.7
+      eslint-plugin-emotion: 10.0.14
       eslint-plugin-import: 2.18.2_eslint@6.6.0
       eslint-plugin-node: 10.0.0_eslint@6.6.0
       eslint-plugin-prettier: 3.1.1_eslint@6.6.0+prettier@1.18.2
@@ -22,6 +23,7 @@ importers:
       eslint: ^6.6.0
       eslint-config-prettier: ^6.5.0
       eslint-config-react: ^1.1.7
+      eslint-plugin-emotion: ^10.0.14
       eslint-plugin-import: ^2.18.2
       eslint-plugin-node: ^10.0.0
       eslint-plugin-prettier: ^3.1.1
@@ -33,13 +35,13 @@ importers:
   packages/api:
     dependencies:
       '@getchlist/shared': 'link:../shared'
-      '@types/koa': 2.0.51
       dotenv: 8.2.0
       knex: 0.20.1_pg@7.12.1+sqlite3@4.1.0
       koa: 2.11.0
       pg: 7.12.1_pg@7.12.1
       sqlite3: 4.1.0
     devDependencies:
+      '@types/koa': 2.0.51
       nodemon: 1.19.4
       ts-node: 8.4.1
     specifiers:
@@ -1109,7 +1111,7 @@ packages:
   /@types/accepts/1.3.5:
     dependencies:
       '@types/node': 12.12.5
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-jOdnI/3qTpHABjM5cx1Hc0sKsPoYCp+DP/GJRGtDlPd7fiV9oXGGIcjW/ZOxLIvjGz8MA+uMZI9metHlgqbgwQ==
   /@types/anymatch/1.3.1:
@@ -1149,6 +1151,7 @@ packages:
     dependencies:
       '@types/connect': 3.4.32
       '@types/node': 12.12.5
+    dev: true
     resolution:
       integrity: sha512-RoX2EZjMiFMjZh9lmYrwgoP9RTpAjSHiJxdp4oidAQVO02T7HER3xj9UKue5534ULWeqVEkujhWcyvUce+d68w==
   /@types/connect-history-api-fallback/1.3.3:
@@ -1161,6 +1164,7 @@ packages:
   /@types/connect/3.4.32:
     dependencies:
       '@types/node': 12.12.5
+    dev: true
     resolution:
       integrity: sha512-4r8qa0quOvh7lGD0pre62CAb1oni1OO6ecJLGCezTmhQ8Fz50Arx9RUszryR8KlgK6avuSXvviL6yWyViQABOg==
   /@types/cookies/0.7.4:
@@ -1169,7 +1173,7 @@ packages:
       '@types/express': 4.17.2
       '@types/keygrip': 1.0.1
       '@types/node': 12.12.5
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-oTGtMzZZAVuEjTwCjIh8T8FrC8n/uwy+PG0yTvQcdZ7etoel7C7/3MSd7qrukENTgQtotG7gvBlBojuVs7X5rw==
   /@types/copy-webpack-plugin/5.0.0:
@@ -1192,6 +1196,7 @@ packages:
     dependencies:
       '@types/node': 12.12.5
       '@types/range-parser': 1.2.3
+    dev: true
     resolution:
       integrity: sha512-K8d2M5t3tBQimkyaYTXxtHYyoJPUEhy2/omVRnTAKw5FEdT+Ft6lTaTOpoJdHeG+mIwQXXtqiTcYZ6IR8LTzjQ==
   /@types/express/4.17.2:
@@ -1199,6 +1204,7 @@ packages:
       '@types/body-parser': 1.17.1
       '@types/express-serve-static-core': 4.16.11
       '@types/serve-static': 1.13.3
+    dev: true
     resolution:
       integrity: sha512-5mHFNyavtLoJmnusB8OKJ5bshSzw+qkMIBAobLrIM48HJvunFva9mOa6aBwh64lBFyNwBbs0xiEFuj4eU/NjCA==
   /@types/glob/7.1.1:
@@ -1214,7 +1220,7 @@ packages:
     resolution:
       integrity: sha512-cS5owqtwzLN5kY+l+KgKdRJ/Cee8tlmQoGQuIE9tWnSmS3JMKzmxo2HIAk2wODMifGwO20d62xZQLYz+RLfXmw==
   /@types/http-assert/1.5.1:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-PGAK759pxyfXE78NbKxyfRcWYA/KwW17X290cNev/qAsn9eQIxkH4shoNBafH37wewhDG/0p1cHPbK6+SzZjWQ==
   /@types/http-proxy-middleware/0.19.3:
@@ -1236,13 +1242,13 @@ packages:
     resolution:
       integrity: sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==
   /@types/keygrip/1.0.1:
-    dev: false
+    dev: true
     resolution:
       integrity: sha1-/1QEYtL7TQqIRBzq8n0oewHD2Hg=
   /@types/koa-compose/3.2.4:
     dependencies:
       '@types/koa': 2.0.51
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-ioou0rxkuWL+yBQYsHUQAzRTfVxAg8Y2VfMftU+Y3RA03/MzuFL0x/M2sXXj3PkfnENbHsjeHR1aMdezLYpTeA==
   /@types/koa/2.0.51:
@@ -1253,10 +1259,11 @@ packages:
       '@types/keygrip': 1.0.1
       '@types/koa-compose': 3.2.4
       '@types/node': 12.12.5
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-L5e/l6Z+SR9Jk6HM0wNYdkvWhSUBOvi+7Q5Uwn7kE/VmBXX7NIxARMigARWAyXAtXiv5Ry1P2HmebolFdvuIVg==
   /@types/mime/2.0.1:
+    dev: true
     resolution:
       integrity: sha512-FwI9gX75FgVBJ7ywgnq/P7tw+/o1GUbtP0KzbtusLigAOgIgNISRK0ZPl4qertvXSIE8YbsVJueQ90cDt9YYyw==
   /@types/minimatch/3.0.3:
@@ -1264,6 +1271,7 @@ packages:
     resolution:
       integrity: sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
   /@types/node/12.12.5:
+    dev: true
     resolution:
       integrity: sha512-KEjODidV4XYUlJBF3XdjSH5FWoMCtO0utnhtdLf1AgeuZLOrRbvmU/gaRCVg7ZaQDjVf3l84egiY0mRNe5xE4A==
   /@types/node/12.12.6:
@@ -1275,6 +1283,7 @@ packages:
     resolution:
       integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
   /@types/range-parser/1.2.3:
+    dev: true
     resolution:
       integrity: sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==
   /@types/react-dom/16.9.3:
@@ -1294,6 +1303,7 @@ packages:
     dependencies:
       '@types/express-serve-static-core': 4.16.11
       '@types/mime': 2.0.1
+    dev: true
     resolution:
       integrity: sha512-oprSwp094zOglVrXdlo/4bAHtKTAxX6VT8FOZlBKrmyLbNvE1zxZyJ6yikMVtHIvwP45+ZQGJn+FdXGKTozq0g==
   /@types/source-list-map/0.1.2:
@@ -3191,6 +3201,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-H6DOj+ejw7Tesdgbfs4jeS4YMFrT8uI8xwd1gtQqXssaR0EQ26L+2O/w6wkYFy2MymON0fTwHmXBvvfLNZVZEw==
+  /eslint-plugin-emotion/10.0.14:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-kI0hTPA5oo7MAc2YcdF1JcT36TZ1Ci0S5sbA9aojZ3leEPyCH34YBB76/8NQ3/9gybqrekIEuEhr8MP6JZf95Q==
   /eslint-plugin-es/2.0.0_eslint@6.6.0:
     dependencies:
       eslint: 6.6.0

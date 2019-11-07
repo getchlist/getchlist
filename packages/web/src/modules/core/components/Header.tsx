@@ -7,7 +7,7 @@ interface HeaderProps {
     buttons: NavbarButtonMetadata[]
 }
 
-const Container = styled.div`
+const Container = styled("div")`
     color: red;
 `
 
