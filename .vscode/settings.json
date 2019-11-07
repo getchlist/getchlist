@@ -10,5 +10,6 @@
             "language": "typescriptreact",
             "autoFix": true
         }
-    ]
+    ],
+    "files.eol": "\n"
 }
