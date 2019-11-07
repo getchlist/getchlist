@@ -15,6 +15,8 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@emotion/core": "^10.0.22",
+        "@emotion/styled": "^10.0.23",
         "@getchlist/shared": "0.0.1",
         "history": "^4.10.1",
         "mobx": "^5.14.2",
@@ -30,6 +32,7 @@
         "@babel/preset-env": "^7.6.3",
         "@babel/preset-react": "^7.6.3",
         "@babel/preset-typescript": "^7.6.0",
+        "@types/babel__core": "^7.1.3",
         "@types/copy-webpack-plugin": "^5.0.0",
         "@types/history": "^4.7.3",
         "@types/react": "^16.9.11",
@@ -37,6 +40,7 @@
         "@types/webpack": "^4.39.8",
         "@types/webpack-dev-server": "^3.4.0",
         "babel-loader": "^8.0.6",
+        "babel-plugin-emotion": "^10.0.23",
         "babel-polyfill": "^6.26.0",
         "clean-webpack-plugin": "^3.0.0",
         "copy-webpack-plugin": "^5.0.4",

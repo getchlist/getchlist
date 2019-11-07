@@ -1,0 +1,17 @@
+{
+    "extends": ["plugin:react/recommended", "../../.eslintrc"],
+    "plugins": ["react"],
+    "env": {
+        "node": false
+    },
+    "rules": {
+        "react/prop-types": 0,
+        "react/display-name": 0
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "16.11.0"
+        }
+    }
+}

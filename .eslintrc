@@ -4,7 +4,6 @@
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended",
         "plugin:promise/recommended",
-        "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:node/recommended",
         "plugin:import/warnings",
@@ -12,7 +11,6 @@
         "plugin:import/typescript"
     ],
     "plugins": [
-        "react",
         "@typescript-eslint/eslint-plugin",
         "prettier",
         "promise",
@@ -27,15 +25,7 @@
         "node/no-unpublished-require": 0,
         "node/no-missing-import": 0,
         "@typescript-eslint/explicit-function-return-type": 0,
-        "@typescript-eslint/member-delimiter-style": 0,
-        "react/prop-types": 0,
-        "react/display-name": 0
-    },
-    "settings": {
-        "react": {
-            "pragma": "React",
-            "version": "16.11.0"
-        }
+        "@typescript-eslint/member-delimiter-style": 0
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
