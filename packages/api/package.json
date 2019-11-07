@@ -13,7 +13,6 @@
     },
     "dependencies": {
         "@getchlist/shared": "0.0.1",
-        "@types/koa": "^2.0.51",
         "dotenv": "^8.2.0",
         "knex": "^0.20.1",
         "koa": "^2.11.0",
@@ -21,6 +20,7 @@
         "sqlite3": "^4.1.0"
     },
     "devDependencies": {
+        "@types/koa": "^2.0.51",
         "nodemon": "^1.19.4",
         "ts-node": "^8.4.1"
     }
