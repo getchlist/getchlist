@@ -6,6 +6,8 @@ import { StoreManager } from "../../../common/state/classes/StoreManager"
 import { Stores } from "../../../common/state/manager"
 import { Theme } from "../../theming/components/Theme"
 import { GlobalStyles } from "../../theming/components/GlobalStyles"
+import { Header } from "./Header"
+import { navbarButtonMetadata } from "../routes"
 
 interface AppProps {
     manager: StoreManager<Stores>
@@ -14,9 +16,11 @@ interface AppProps {
 export const App: React.FC<AppProps> = ({ manager }) => {
     return (
         <ManagerContext.Provider value={manager}>
+            <Head />
+
             <Theme>
                 <GlobalStyles />
-                <Head />
+                <Header buttons={navbarButtonMetadata} />
                 <Body />
             </Theme>
         </ManagerContext.Provider>

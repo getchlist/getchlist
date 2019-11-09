@@ -8,14 +8,12 @@ const style = (theme: Theme) => css`
         margin: 0;
         padding: 0;
 
-        font-family: Barlow, sans-serif;
-
         color: ${theme.fontColors.normal};
         background: ${theme.colors.primary};
     }
 
     body {
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     a {
@@ -24,18 +22,12 @@ const style = (theme: Theme) => css`
     }
 
     button {
-        border: none;
-        margin: 0;
-        padding: 0;
-        width: auto;
-        overflow: visible;
-
-        background: transparent;
-
         color: inherit;
-        font: inherit;
+        background: transparent;
+        border: none;
 
-        line-height: normal;
+        /* thanks bg */
+        outline: none;
     }
 `
 

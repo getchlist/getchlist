@@ -2,6 +2,7 @@ export interface Theme {
     colors: {
         primary: string
         accent: string
+        secondary: string
     }
     fontColors: {
         normal: string
@@ -10,5 +11,12 @@ export interface Theme {
     stateColors: {
         warning: string
         danger: string
+    }
+    transparencies: {
+        positive: string
+        negative: string
+    }
+    durations: {
+        normal: string
     }
 }
