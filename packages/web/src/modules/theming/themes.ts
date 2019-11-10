@@ -1,8 +1,19 @@
 import { Theme } from "./types/Theme"
 import _styled, { CreateStyled } from "@emotion/styled"
 
+const common: Pick<Theme, "durations" | "measures"> = {
+    durations: {
+        normal: "250ms"
+    },
+    measures: {
+        borderRaduis: "4px",
+        spacing: "1rem"
+    }
+}
+
 // TODO: actually modify theme (curently its copied from gears)
 const darkTheme: Theme = {
+    ...common,
     colors: {
         primary: "#2B4162",
         accent: "#fed766",
@@ -10,6 +21,7 @@ const darkTheme: Theme = {
     },
     fontColors: {
         normal: "#eff1f4",
+        onSecondary: "#eff1f4",
         muted: "rgba(255, 255, 255, 0.6)"
     },
     stateColors: {
@@ -19,13 +31,11 @@ const darkTheme: Theme = {
     transparencies: {
         positive: "rgba(26, 33, 59, 0.5)",
         negative: "rgba(0, 0, 0, 0.5)"
-    },
-    durations: {
-        normal: "250ms"
     }
 }
 
 const lightTheme: Theme = {
+    ...common,
     colors: {
         primary: "#eeeeee",
         accent: "#e81e57",
@@ -33,7 +43,8 @@ const lightTheme: Theme = {
     },
     fontColors: {
         normal: "#29274c",
-        muted: "rgba(0, 0, 0, 0.6)"
+        muted: "rgba(0, 0, 0, 0.6)",
+        onSecondary: darkTheme.fontColors.normal
     },
     stateColors: {
         warning: "#ffe500",

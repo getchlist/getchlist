@@ -8,8 +8,7 @@
         "react/prop-types": 0,
         "react/display-name": 0,
         "emotion/styled-import": 2,
-        "emotion/no-vanilla": 2,
-        "emotion/syntax-preference": [2, "string"]
+        "emotion/no-vanilla": 2
     },
     "settings": {
         "react": {

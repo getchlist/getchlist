@@ -1,7 +1,7 @@
 import React from "react"
 import { useRouterLink } from "../hooks/useRouterLink"
 
-interface Linkprops {
+export interface Linkprops {
     to: string
 }
 

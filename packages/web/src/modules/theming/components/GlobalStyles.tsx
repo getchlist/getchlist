@@ -17,7 +17,7 @@ const style = (theme: Theme) => css`
     }
 
     a {
-        color: ${theme.colors.accent};
+        color: inherit;
         text-decoration: none;
     }
 

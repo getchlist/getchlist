@@ -1,19 +1,13 @@
 import React from "react"
 import { styled } from "../../theming/themes"
 import { NavbarButtonMetadata } from "../../metadata/types/NavbarButtonMetadata"
-import {
-    HEADER_HEIGHT,
-    logo,
-    BODY_PADDING,
-    SPACING,
-    BORDER_RADIUS
-} from "../constants"
-import { getColor, getTransparency, getDuration } from "../../theming/helpers"
+import { HEADER_HEIGHT, logo, BODY_PADDING } from "../constants"
+import { getColor, getTransparency } from "../../theming/helpers"
 import { Link } from "../../../common/routing/components/Link"
-
-interface HeaderProps {
-    buttons: NavbarButtonMetadata[]
-}
+import { Button, ButtonLink } from "../../../common/design/components/Button"
+import { Space } from "../../../common/design/components/Space"
+import { useStores } from "../../../common/state/hooks/useStores"
+import { useObserver } from "mobx-react-lite"
 
 const Container = styled.div`
     position: fixed;
@@ -30,40 +24,39 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 
-const Button = styled.button`
-    margin: ${SPACING};
-    padding: ${SPACING};
-
-    background: ${getColor("primary")};
-    border-radius: ${BORDER_RADIUS};
-
-    filter: brightness(1);
-    transition: filter ${getDuration("normal")};
-
-    &:hover {
-        filter: brightness(1.3);
-    }
+const Logo = styled.img`
+    padding-right: ${BODY_PADDING};
 `
 
-const ColoredButton = styled(Button)`
-    background-color: ${getColor("secondary")};
-`
+interface HeaderProps {
+    buttons: NavbarButtonMetadata[]
+}
 
-const LogoContainer = styled.div`
-    flex-grow: 1;
-`
+export const Header: React.FC<HeaderProps> = ({ buttons }) => {
+    const { metadataStore } = useStores()
+    const metadata = useObserver(() => metadataStore.metadata)
 
-export const Header: React.FC<HeaderProps> = () => {
     return (
         <Container>
-            <LogoContainer>
-                <Link to="/">
-                    <img height={BODY_PADDING} src={logo} />
-                </Link>
-            </LogoContainer>
+            <Link to="/">
+                <Logo height={BODY_PADDING} src={logo} />
+            </Link>
 
-            <Button>Sign in</Button>
-            <ColoredButton>Sign up</ColoredButton>
+            {buttons.map(({ category, to, text }) => {
+                const variant =
+                    category === metadata.category ? "secondary" : "primary"
+
+                return (
+                    <ButtonLink to={to} variant={variant} key={category}>
+                        {text}
+                    </ButtonLink>
+                )
+            })}
+
+            <Space />
+
+            <Button variant="primary">Sign in</Button>
+            <Button variant="secondary">Sign up</Button>
         </Container>
     )
 }

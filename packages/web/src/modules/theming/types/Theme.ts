@@ -6,6 +6,7 @@ export interface Theme {
     }
     fontColors: {
         normal: string
+        onSecondary: string
         muted: string
     }
     stateColors: {
@@ -18,5 +19,9 @@ export interface Theme {
     }
     durations: {
         normal: string
+    }
+    measures: {
+        spacing: string
+        borderRaduis: string
     }
 }
