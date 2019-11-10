@@ -8,6 +8,7 @@ import { Button, ButtonLink } from "../../../common/design/components/Button"
 import { Space } from "../../../common/design/components/Space"
 import { useStores } from "../../../common/state/hooks/useStores"
 import { useObserver } from "mobx-react-lite"
+import { HeaderImage } from "./HeaderImage"
 
 const Container = styled.div`
     position: fixed;
@@ -24,7 +25,7 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 
-const Logo = styled.img`
+const Logo = styled(HeaderImage)`
     padding-right: ${BODY_PADDING};
 `
 
@@ -33,13 +34,14 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ buttons }) => {
-    const { metadataStore } = useStores()
+    const { metadataStore, authStore } = useStores()
     const metadata = useObserver(() => metadataStore.metadata)
+    const user = useObserver(() => authStore.user)
 
     return (
         <Container>
             <Link to="/">
-                <Logo height={BODY_PADDING} src={logo} />
+                <Logo src={logo} />
             </Link>
 
             {buttons.map(({ category, to, text }) => {
@@ -55,8 +57,32 @@ export const Header: React.FC<HeaderProps> = ({ buttons }) => {
 
             <Space />
 
-            <Button variant="primary">Sign in</Button>
-            <Button variant="secondary">Sign up</Button>
+            {!user && (
+                <>
+                    <Button
+                        onClick={() => {
+                            authStore.login("something@hmm.ro", "123")
+                        }}
+                        variant="primary"
+                    >
+                        Log in
+                    </Button>
+                    <Button
+                        onClick={() => {
+                            authStore.signup(
+                                "something@hmm.ro",
+                                "pewdiepie",
+                                "123"
+                            )
+                        }}
+                        variant="secondary"
+                    >
+                        Sign up
+                    </Button>
+                </>
+            )}
+
+            {user && <HeaderImage square={true} src={user.profilePictureUrl} />}
         </Container>
     )
 }
