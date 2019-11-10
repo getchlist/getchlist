@@ -10,6 +10,7 @@ import { useStores } from "../../../common/state/hooks/useStores"
 import { useObserver } from "mobx-react-lite"
 import { HeaderImage } from "./HeaderImage"
 import { spawnLoginModal } from "../../auth/actions/spawnLoginModal"
+import { spawnSignupModal } from "../../auth/actions/spawnSignupModal"
 
 const Container = styled.div`
     position: fixed;
@@ -30,12 +31,39 @@ const LogoContainer = styled.div`
     padding-right: ${BODY_PADDING};
 `
 
+const ProfileImage = styled(HeaderImage)`
+    border-radius: calc(${BODY_PADDING} / 2);
+`
+
+const HeaderAuthButtons = () => {
+    const { modalStore } = useStores()
+
+    return (
+        <>
+            <Button
+                onClick={() => spawnLoginModal(modalStore)}
+                variant="primary"
+                spaced
+            >
+                Log in
+            </Button>
+            <Button
+                onClick={() => spawnSignupModal(modalStore)}
+                variant="secondary"
+                spaced
+            >
+                Sign up
+            </Button>
+        </>
+    )
+}
+
 interface HeaderProps {
     buttons: NavbarButtonMetadata[]
 }
 
 export const Header: React.FC<HeaderProps> = ({ buttons }) => {
-    const { metadataStore, authStore, modalStore } = useStores()
+    const { metadataStore, authStore } = useStores()
     const metadata = useObserver(() => metadataStore.metadata)
     const user = useObserver(() => authStore.user)
 
@@ -60,32 +88,11 @@ export const Header: React.FC<HeaderProps> = ({ buttons }) => {
 
             <Space />
 
-            {!user && (
-                <>
-                    <Button
-                        onClick={() => spawnLoginModal(modalStore)}
-                        variant="primary"
-                        spaced
-                    >
-                        Log in
-                    </Button>
-                    <Button
-                        onClick={() => {
-                            authStore.signup(
-                                "something@hmm.ro",
-                                "pewdiepie",
-                                "123"
-                            )
-                        }}
-                        variant="secondary"
-                        spaced
-                    >
-                        Sign up
-                    </Button>
-                </>
+            {user ? (
+                <ProfileImage square={true} src={user.profilePictureUrl} />
+            ) : (
+                <HeaderAuthButtons />
             )}
-
-            {user && <HeaderImage square={true} src={user.profilePictureUrl} />}
         </Container>
     )
 }

@@ -14,6 +14,7 @@ const ModalBackgroud = styled(Layer)`
 
 const ModalBodyContainer = styled(Spaced)`
     flex-grow: 1;
+    min-width: 40vw;
 `
 
 const ModalHeader = styled(Spaced)`
