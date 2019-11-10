@@ -12,7 +12,12 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>(
-    ({ theme, spaced = true, hoverBrightness = 1.3, variant = "primary" }) => ({
+    ({
+        theme,
+        spaced = false,
+        hoverBrightness = 1.3,
+        variant = "primary"
+    }) => ({
         background: theme.colors[variant],
         borderRadius: theme.measures.borderRaduis,
         color: chooseColor(theme, variant),

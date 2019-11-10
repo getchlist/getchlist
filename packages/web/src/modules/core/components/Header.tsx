@@ -9,6 +9,7 @@ import { Space } from "../../../common/design/components/Space"
 import { useStores } from "../../../common/state/hooks/useStores"
 import { useObserver } from "mobx-react-lite"
 import { HeaderImage } from "./HeaderImage"
+import { spawnLoginModal } from "../../auth/actions/spawnLoginModal"
 
 const Container = styled.div`
     position: fixed;
@@ -25,7 +26,7 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 
-const Logo = styled(HeaderImage)`
+const LogoContainer = styled.div`
     padding-right: ${BODY_PADDING};
 `
 
@@ -34,22 +35,24 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ buttons }) => {
-    const { metadataStore, authStore } = useStores()
+    const { metadataStore, authStore, modalStore } = useStores()
     const metadata = useObserver(() => metadataStore.metadata)
     const user = useObserver(() => authStore.user)
 
     return (
         <Container>
-            <Link to="/">
-                <Logo src={logo} />
-            </Link>
+            <LogoContainer>
+                <Link to="/">
+                    <HeaderImage src={logo} />
+                </Link>
+            </LogoContainer>
 
             {buttons.map(({ category, to, text }) => {
                 const variant =
                     category === metadata.category ? "secondary" : "primary"
 
                 return (
-                    <ButtonLink to={to} variant={variant} key={category}>
+                    <ButtonLink spaced to={to} variant={variant} key={category}>
                         {text}
                     </ButtonLink>
                 )
@@ -60,10 +63,9 @@ export const Header: React.FC<HeaderProps> = ({ buttons }) => {
             {!user && (
                 <>
                     <Button
-                        onClick={() => {
-                            authStore.login("something@hmm.ro", "123")
-                        }}
+                        onClick={() => spawnLoginModal(modalStore)}
                         variant="primary"
+                        spaced
                     >
                         Log in
                     </Button>
@@ -76,6 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ buttons }) => {
                             )
                         }}
                         variant="secondary"
+                        spaced
                     >
                         Sign up
                     </Button>

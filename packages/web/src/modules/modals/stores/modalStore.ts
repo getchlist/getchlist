@@ -1,6 +1,7 @@
 import React from "react"
 import { Store } from "../../../common/state/types/Store"
 import { observable, computed } from "mobx"
+import { Theme } from "../../theming/types/Theme"
 
 export interface ModalProps {
     cancel(): void
@@ -9,9 +10,13 @@ export interface ModalProps {
 export type ModalComponent = React.FC<ModalProps>
 
 interface Modal {
-    header: ModalComponent
+    title: string
     body: ModalComponent
-    footer: ModalComponent
+
+    key?: string
+    variant?: keyof Theme["colors"]
+
+    callback?: () => void
 }
 
 export class ModalStore implements Store {
@@ -23,12 +28,21 @@ export class ModalStore implements Store {
         return !!this.modalStack.length
     }
 
-    public reset() {
-        this.modalStack = []
+    @computed
+    public get currentModal() {
+        return this.visible ? this.modalStack[this.modalStack.length - 1] : null
     }
 
     public pop() {
-        this.modalStack.pop()
+        const popped = this.modalStack.pop()
+
+        if (popped && popped.callback) {
+            popped.callback()
+        }
+    }
+
+    public reset() {
+        this.modalStack = []
     }
 
     public spawn(modal: Modal) {
