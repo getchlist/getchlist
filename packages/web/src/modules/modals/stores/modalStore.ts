@@ -3,15 +3,9 @@ import { Store } from "../../../common/state/types/Store"
 import { observable, computed } from "mobx"
 import { Theme } from "../../theming/types/Theme"
 
-export interface ModalProps {
-    cancel(): void
-}
-
-export type ModalComponent = React.FC<ModalProps>
-
-interface Modal {
+interface ModalConfig {
     title: string
-    body: ModalComponent
+    body: React.ComponentType
 
     key?: string
     variant?: keyof Theme["colors"]
@@ -21,7 +15,7 @@ interface Modal {
 
 export class ModalStore implements Store {
     @observable
-    public modalStack = new Array<Modal>()
+    public modalStack: ModalConfig[] = []
 
     @computed
     public get visible() {
@@ -45,11 +39,11 @@ export class ModalStore implements Store {
         this.modalStack = []
     }
 
-    public spawn(modal: Modal) {
+    public spawn(modal: ModalConfig) {
         this.modalStack.push(modal)
     }
 
-    public replace(modal: Modal) {
+    public replace(modal: ModalConfig) {
         this.pop()
         this.spawn(modal)
     }
