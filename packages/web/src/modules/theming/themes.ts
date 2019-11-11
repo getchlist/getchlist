@@ -3,7 +3,8 @@ import _styled, { CreateStyled } from "@emotion/styled"
 
 const common: Pick<Theme, "durations" | "measures"> = {
     durations: {
-        normal: "250ms"
+        normal: "250ms",
+        short: "100ms"
     },
     measures: {
         borderRaduis: "4px",
@@ -53,9 +54,6 @@ const lightTheme: Theme = {
     transparencies: {
         positive: "rgba(0, 0, 0, 0.2)",
         negative: "rgba(0, 0, 0, 0.2)"
-    },
-    durations: {
-        normal: "250ms"
     }
 }
 

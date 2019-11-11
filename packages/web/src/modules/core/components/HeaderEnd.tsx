@@ -6,11 +6,20 @@ import { styled } from "../../theming/themes"
 import { Button } from "../../../common/design/components/Button"
 import { spawnLoginModal } from "../../auth/actions/spawnLoginModal"
 import { spawnSignupModal } from "../../auth/actions/spawnSignupModal"
+import { getDuration } from "../../theming/helpers"
 
 const ProfileImage = styled.img`
     width: ${BODY_PADDING};
     height: ${BODY_PADDING};
+
+    transition: border-radius ${getDuration("short")},
+        transform ${getDuration("short")};
     border-radius: calc(${BODY_PADDING} / 2);
+
+    &:hover {
+        border-radius: calc(${BODY_PADDING} / 4);
+        transform: scale(1.2, 1.2);
+    }
 `
 
 const HeaderAuthButtons = () => {

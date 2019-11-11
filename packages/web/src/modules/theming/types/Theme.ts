@@ -18,6 +18,7 @@ export interface Theme {
         negative: string
     }
     durations: {
+        short: string
         normal: string
     }
     measures: {
