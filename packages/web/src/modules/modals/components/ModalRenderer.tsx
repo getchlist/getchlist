@@ -5,8 +5,9 @@ import { useObserver } from "mobx-react-lite"
 import { getTransparency } from "../../theming/helpers"
 import { styled } from "../../theming/themes"
 import { Center } from "../../../common/design/components/Center"
-import { ModalContent } from "./ModalContent"
 import { Spaced } from "../../../common/design/components/Spaced"
+import { ModalContent } from "./ModalContent"
+import { ModalContext, Modal } from "./ModalContext"
 
 const ModalBackgroud = styled(Layer)`
     background-color: ${getTransparency("positive")};
@@ -23,31 +24,37 @@ const ModalHeader = styled(Spaced)`
 
 export const ModalRenderer = () => {
     const { modalStore } = useStores()
-    const Modal = useObserver(() => modalStore.currentModal)
+    const CurrentModal = useObserver(() => modalStore.currentModal)
 
-    if (Modal === null) {
+    if (CurrentModal === null) {
         return null
     }
 
-    const cancel = modalStore.pop.bind(modalStore)
+    const dimiss = modalStore.pop.bind(modalStore)
+
+    const modal: Modal = {
+        dimiss
+    }
 
     return (
         <ModalBackgroud
-            key={Modal.key || Modal.title}
+            key={CurrentModal.key || CurrentModal.title}
             zIndex={2}
-            onClick={cancel}
+            onClick={dimiss}
         >
             <Center>
                 <ModalContent
                     onClick={e => {
                         e.stopPropagation()
                     }}
-                    variant={Modal.variant || "primary"}
+                    variant={CurrentModal.variant || "primary"}
                 >
-                    <ModalHeader>{Modal.title}</ModalHeader>
+                    <ModalHeader>{CurrentModal.title}</ModalHeader>
 
                     <ModalBodyContainer>
-                        <Modal.body cancel={cancel} />
+                        <ModalContext.Provider value={modal}>
+                            <CurrentModal.body />
+                        </ModalContext.Provider>
                     </ModalBodyContainer>
                 </ModalContent>
             </Center>

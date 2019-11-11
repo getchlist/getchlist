@@ -1,26 +1,32 @@
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { useStores } from "../../../common/state/hooks/useStores"
-import { ModalComponent } from "../../modals/stores/modalStore"
 import { Button } from "../../../common/design/components/Button"
 import { login } from "../actions/login"
 import { ModalFooter } from "../../modals/components/ModalFooter"
+import { Loader } from "../../../common/design/components/Loader"
+import { useLoadingAnimation } from "../../../common/design/hooks/useLoadingAnimation"
+import { useModalContext } from "../../modals/hooks/useModalOverlay"
 
-export const LoginModal: ModalComponent = ({ cancel }) => {
+export const LoginModal: FunctionComponent = () => {
     const { authStore } = useStores()
+    const { dimiss } = useModalContext()
+    const { load, Output } = useLoadingAnimation(Loader)
 
-    const handleLogin = () => {
-        login(authStore, "someone@example.hmm", "123")
-        cancel()
+    const handleLogin = async () => {
+        await load(() => login(authStore, "someone@example.hmm", "123"))
+        dimiss()
     }
 
     return (
         <>
             Log in here!!!!
             <ModalFooter>
-                <Button onClick={cancel}>Cancel</Button>
-                <Button onClick={handleLogin} variant="secondary">
-                    Login
-                </Button>
+                <Output>
+                    <Button onClick={dimiss}>Cancel</Button>
+                    <Button onClick={handleLogin} variant="secondary">
+                        Login
+                    </Button>
+                </Output>
             </ModalFooter>
         </>
     )
