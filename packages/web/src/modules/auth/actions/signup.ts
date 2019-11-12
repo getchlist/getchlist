@@ -1,14 +1,17 @@
 import { AuthStore } from "../stores/authStore"
 
+export interface SignupData {
+    email: string
+    username: string
+    password: string
+}
+
 export const signup = (
     authStore: AuthStore,
-    email: string,
-    username: string,
-    password: string
+    { email, username }: SignupData
 ) => {
     // This is a mock until we get the actual api
     // for ts to shut up about me not using it
-    console.log(password)
 
     authStore.user = {
         email,

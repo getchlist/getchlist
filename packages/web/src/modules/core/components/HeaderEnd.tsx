@@ -49,13 +49,9 @@ export const HeaderEnd = () => {
     const { authStore } = useStores()
     const user = useObserver(() => authStore.user)
 
-    return (
-        <>
-            {user ? (
-                <ProfileImage src={user.profilePictureUrl} />
-            ) : (
-                <HeaderAuthButtons />
-            )}
-        </>
+    return user ? (
+        <ProfileImage src={user.profilePictureUrl} />
+    ) : (
+        <HeaderAuthButtons />
     )
 }

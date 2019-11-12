@@ -1,6 +1,6 @@
 import React from "react"
 import { useStores } from "../../../common/state/hooks/useStores"
-import { Layer } from "../../../common/design/components/Layer"
+import { AbsoluteLayer } from "../../../common/design/components/Layer"
 import { useObserver } from "mobx-react-lite"
 import { getTransparency } from "../../theming/helpers"
 import { styled } from "../../theming/themes"
@@ -9,13 +9,14 @@ import { Spaced } from "../../../common/design/components/Spaced"
 import { ModalContent } from "./ModalContent"
 import { ModalContext, Modal } from "./ModalContext"
 
-const ModalBackgroud = styled(Layer)`
+const ModalBackgroud = styled(AbsoluteLayer)`
     background-color: ${getTransparency("positive")};
 `
 
 const ModalBodyContainer = styled(Spaced)`
     flex-grow: 1;
     min-width: 40vw;
+    box-sizing: border-box;
 `
 
 const ModalHeader = styled(Spaced)`
