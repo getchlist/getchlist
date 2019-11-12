@@ -28,74 +28,74 @@ const LoaderContainer = styled.div`
         margin: -3px 0 0 -3px;
     }
 
-    .lds-roller div:nth-child(1) {
+    .lds-roller div:nth-of-type(1) {
         animation-delay: -0.036s;
     }
 
-    .lds-roller div:nth-child(1):after {
+    .lds-roller div:nth-of-type(1):after {
         top: 50px;
         left: 50px;
     }
 
-    .lds-roller div:nth-child(2) {
+    .lds-roller div:nth-of-type(2) {
         animation-delay: -0.072s;
     }
 
-    .lds-roller div:nth-child(2):after {
+    .lds-roller div:nth-of-type(2):after {
         top: 54px;
         left: 45px;
     }
 
-    .lds-roller div:nth-child(3) {
+    .lds-roller div:nth-of-type(3) {
         animation-delay: -0.108s;
     }
 
-    .lds-roller div:nth-child(3):after {
+    .lds-roller div:nth-of-type(3):after {
         top: 57px;
         left: 39px;
     }
 
-    .lds-roller div:nth-child(4) {
+    .lds-roller div:nth-of-type(4) {
         animation-delay: -0.144s;
     }
 
-    .lds-roller div:nth-child(4):after {
+    .lds-roller div:nth-of-type(4):after {
         top: 58px;
         left: 32px;
     }
 
-    .lds-roller div:nth-child(5) {
+    .lds-roller div:nth-of-type(5) {
         animation-delay: -0.18s;
     }
 
-    .lds-roller div:nth-child(5):after {
+    .lds-roller div:nth-of-type(5):after {
         top: 57px;
         left: 25px;
     }
 
-    .lds-roller div:nth-child(6) {
+    .lds-roller div:nth-of-type(6) {
         animation-delay: -0.216s;
     }
 
-    .lds-roller div:nth-child(6):after {
+    .lds-roller div:nth-of-type(6):after {
         top: 54px;
         left: 19px;
     }
 
-    .lds-roller div:nth-child(7) {
+    .lds-roller div:nth-of-type(7) {
         animation-delay: -0.252s;
     }
 
-    .lds-roller div:nth-child(7):after {
+    .lds-roller div:nth-of-type(7):after {
         top: 50px;
         left: 14px;
     }
 
-    .lds-roller div:nth-child(8) {
+    .lds-roller div:nth-of-type(8) {
         animation-delay: -0.288s;
     }
 
-    .lds-roller div:nth-child(8):after {
+    .lds-roller div:nth-of-type(8):after {
         top: 45px;
         left: 10px;
     }
