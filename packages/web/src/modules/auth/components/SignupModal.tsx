@@ -13,9 +13,7 @@ export const SignupModal: FunctionComponent = () => {
     const { load, Output } = useLoadingAnimation(Loader)
 
     const handleSignup = async () => {
-        await load(() =>
-            signup(authStore, "someone@example.hmm", "pewdiepie", "123")
-        )
+        await load(signup(authStore, "someone@example.hmm", "pewdiepie", "123"))
         dimiss()
     }
 

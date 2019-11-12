@@ -13,7 +13,7 @@ export const LoginModal: FunctionComponent = () => {
     const { load, Output } = useLoadingAnimation(Loader)
 
     const handleLogin = async () => {
-        await load(() => login(authStore, "someone@example.hmm", "123"))
+        await load(login(authStore, "someone@example.hmm", "123"))
         dimiss()
     }
 
