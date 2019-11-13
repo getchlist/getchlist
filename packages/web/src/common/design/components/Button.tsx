@@ -5,7 +5,7 @@ import { Linkprops, Link } from "../../routing/components/Link"
 import { Spaced } from "./Spaced"
 import { chooseColor } from "../../../modules/theming/helpers/chooseColor"
 
-interface ButtonProps {
+export interface ButtonProps {
     hoverBrightness?: number
     variant?: keyof Theme["colors"]
     spaced?: boolean
