@@ -31,7 +31,7 @@ export const ModalRenderer = () => {
         return null
     }
 
-    const dimiss = modalStore.pop.bind(modalStore)
+    const dimiss = modalStore.pop
 
     const modal: Modal = {
         dimiss

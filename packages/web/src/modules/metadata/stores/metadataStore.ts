@@ -1,4 +1,4 @@
-import { observable } from "mobx"
+import { observable, action } from "mobx"
 import { Store } from "../../../common/state/types/Store"
 
 export enum pageCategorires {
@@ -22,10 +22,12 @@ const initialMetadata: PageMetadata = {
 export class MetadataStore implements Store {
     @observable public metadata = initialMetadata
 
+    @action
     public reset() {
         this.metadata = initialMetadata
     }
 
+    @action
     public setMetadata(metadata: Partial<PageMetadata>, preserveOld = false) {
         const defaultMetadata = preserveOld ? this.metadata : initialMetadata
 

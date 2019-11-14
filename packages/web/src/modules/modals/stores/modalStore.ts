@@ -1,6 +1,6 @@
 import React from "react"
 import { Store } from "../../../common/state/types/Store"
-import { observable, computed } from "mobx"
+import { observable, computed, action } from "mobx"
 import { Theme } from "../../theming/types/Theme"
 
 interface ModalConfig {
@@ -27,6 +27,7 @@ export class ModalStore implements Store {
         return this.visible ? this.modalStack[this.modalStack.length - 1] : null
     }
 
+    @action.bound
     public pop() {
         const popped = this.modalStack.pop()
 
@@ -35,14 +36,17 @@ export class ModalStore implements Store {
         }
     }
 
+    @action
     public reset() {
         this.modalStack = []
     }
 
+    @action
     public spawn(modal: ModalConfig) {
         this.modalStack.push(modal)
     }
 
+    @action
     public replace(modal: ModalConfig) {
         this.pop()
         this.spawn(modal)
