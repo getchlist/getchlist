@@ -4,7 +4,7 @@ import { Theme } from "../../../modules/theming/types/Theme"
 
 const size = 30
 
-interface checkboxProps {
+interface CheckboxProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     variant?: keyof Theme["colors"]
 }
