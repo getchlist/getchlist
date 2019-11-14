@@ -4,7 +4,7 @@ import { Theme } from "../../../modules/theming/types/Theme"
 
 const size = 30
 
-interface checkboxProps {
+interface CheckboxProp {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     variant?: keyof Theme["colors"]
 }
@@ -16,7 +16,7 @@ const LabelSwitch = styled.label(() => ({
     height: `${size}px`
 }))
 
-const InputSwitch = styled.input<checkboxProps>(({ theme }) => ({
+const InputSwitch = styled.input<CheckboxProp>(({ theme }) => ({
     opacity: 0,
     width: 0,
     height: 0,
@@ -68,7 +68,7 @@ const SpanSwitch = styled.span(({ theme }) => ({
  * Make a size prop
  */
 
-export const Switch: React.FC<checkboxProps> = ({ ...props }) => {
+export const Switch: React.FC<CheckboxProp> = ({ ...props }) => {
     return (
         <LabelSwitch>
             <InputSwitch {...props} type="checkbox" />
