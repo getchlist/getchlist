@@ -1,7 +1,7 @@
 import { Theme } from "./types/Theme"
 import _styled, { CreateStyled } from "@emotion/styled"
 
-const common: Pick<Theme, "durations" | "measures"> = {
+const common: Pick<Theme, "durations" | "measures" | "brightnesses"> = {
     durations: {
         normal: "250ms",
         short: "100ms"
@@ -9,6 +9,10 @@ const common: Pick<Theme, "durations" | "measures"> = {
     measures: {
         borderRaduis: "4px",
         spacing: "1rem"
+    },
+    brightnesses: {
+        lighter: 1.3,
+        darker: 0.8
     }
 }
 

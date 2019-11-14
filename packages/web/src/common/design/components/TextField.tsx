@@ -1,15 +1,16 @@
 import React from "react"
 import { styled } from "../../../modules/theming/themes"
 import { Theme } from "../../../modules/theming/types/Theme"
-import { FieldProps } from "formik"
 import { chooseColor } from "../../../modules/theming/helpers/chooseColor"
 import { Spaced } from "./Spaced"
+import { useField } from "../../forms/hooks/useField"
+import { FormData } from "../../forms/components/FormContext"
 
 interface InputProps {
-    variant: keyof Theme["colors"]
+    variant?: keyof Theme["colors"]
 }
 
-const Input = styled.input<InputProps>(({ theme, variant }) => ({
+const Input = styled.input<InputProps>(({ theme, variant = "primary" }) => ({
     outline: "none",
     border: "none",
     background: "none",
@@ -31,29 +32,34 @@ const Input = styled.input<InputProps>(({ theme, variant }) => ({
 
     ["&::placeholder"]: {
         color: chooseColor(theme, variant),
-        filter: "brightness(0.7)"
+        opacity: 0.7,
+        filter: `brightness${theme.brightnesses.darker}`
     }
 }))
 
-interface TextFieldProps extends InputProps {
+interface TextFieldOwnProps<T extends FormData> extends InputProps {
     placeholder?: string
+    name: keyof T
 }
 
-export const TextField: React.FC<TextFieldProps & FieldProps<string>> = ({
-    variant = "secondary",
-    field,
+type TextFieldProps<T extends FormData> = React.ComponentProps<typeof Input> &
+    TextFieldOwnProps<T>
+
+export const TextField = <T extends object>({
+    name,
+    placeholder,
     ...props
-}) => {
-    const placeholder = props.placeholder?.length
-        ? props.placeholder
-        : field.name
+}: TextFieldProps<T>) => {
+    const [value, setValue] = useField(name)
 
     return (
         <Spaced>
             <Input
-                variant={variant}
-                placeholder={placeholder}
-                {...field}
+                {...props}
+                placeholder={placeholder || name}
+                name={name}
+                value={value}
+                onChange={e => setValue(e.target.value)}
             ></Input>
         </Spaced>
     )

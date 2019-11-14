@@ -68,7 +68,6 @@ importers:
       '@emotion/styled-base': 10.0.24_75a3621563989c24c51854c3e0e71dec
       '@getchlist/shared': 'link:../shared'
       emotion-theming: 10.0.19_75a3621563989c24c51854c3e0e71dec
-      formik: 2.0.3_react@16.11.0
       history: 4.10.1
       mobx: 5.14.2
       mobx-react-lite: 1.5.0_mobx@5.14.2+react@16.11.0
@@ -132,7 +131,6 @@ importers:
       cross-env: ^6.0.3
       emotion-theming: ^10.0.19
       fork-ts-checker-webpack-plugin: ^3.0.1
-      formik: ^2.0.3
       history: ^4.10.1
       html-webpack-inline-source-plugin: ^0.0.10
       html-webpack-plugin: ^3.2.0
@@ -2856,12 +2854,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
-  /deepmerge/2.2.1:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
   /default-gateway/4.2.0:
     dependencies:
       execa: 1.0.0
@@ -3855,22 +3847,6 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
-  /formik/2.0.3_react@16.11.0:
-    dependencies:
-      deepmerge: 2.2.1
-      hoist-non-react-statics: 3.3.0
-      lodash: 4.17.15
-      lodash-es: 4.17.15
-      react: 16.11.0
-      react-fast-compare: 2.0.4
-      scheduler: 0.14.0
-      tiny-warning: 1.0.3
-      tslib: 1.10.0
-    dev: false
-    peerDependencies:
-      react: ^16.8.0
-    resolution:
-      integrity: sha512-kYBvcxlsYSncY8OiJHD49C0UmoWXbgmIc9V1g3N1WwBJ7SMLk34QpcJDgroYd42K1cH+mSJlXhB7PlgTXTzlWg==
   /forwarded/0.1.2:
     dev: true
     engines:
@@ -5230,10 +5206,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==
-  /lodash-es/4.17.15:
-    dev: false
-    resolution:
-      integrity: sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
   /lodash.unescape/4.0.1:
     dev: true
     resolution:
@@ -6598,10 +6570,6 @@ packages:
       react: ^16.0.0
     resolution:
       integrity: sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
-  /react-fast-compare/2.0.4:
-    dev: false
-    resolution:
-      integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
   /react-is/16.11.0:
     resolution:
       integrity: sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
@@ -6963,13 +6931,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
-  /scheduler/0.14.0:
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-    dev: false
-    resolution:
-      integrity: sha512-9CgbS06Kki2f4R9FjLSITjZo5BZxPsryiRNyL3LpvrM9WxcVmhlqAOc9E+KQbeI2nqej4JIIbOsfdL51cNb4Iw==
   /scheduler/0.17.0:
     dependencies:
       loose-envify: 1.4.0
@@ -7710,6 +7671,7 @@ packages:
     resolution:
       integrity: sha512-5LpRN+mTiCs7lI5EtbXmF/HfMeCjzt7DH9CZwtkr6SywStrNQC723wG+aOWFiLNn7zT3kD/RnFqi3ZUfr4l5Qw==
   /tslib/1.10.0:
+    dev: true
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
   /tsscmp/1.0.6:

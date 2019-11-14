@@ -5,29 +5,10 @@ import { Loader } from "../../../common/design/components/Loader"
 import { useLoadingAnimation } from "../../../common/design/hooks/useLoadingAnimation"
 import { login, LoginData } from "../actions/login"
 import { useForm } from "../../../common/forms/hooks/useForm"
-import { useField } from "../../../common/forms/hooks/useField"
-import { Button, ButtonProps } from "../../../common/design/components/Button"
-import { useSubmit } from "../../../common/forms/hooks/useSubmit"
+import { Button } from "../../../common/design/components/Button"
 import { ModalFooter } from "../../modals/components/ModalFooter"
-
-const SomeInput = ({ name }: { name: keyof LoginData }) => {
-    const [value, setValue] = useField<LoginData>(name)
-
-    return (
-        <input
-            name={name}
-            placeholder={name}
-            value={value}
-            onChange={e => setValue(e.target.value)}
-        ></input>
-    )
-}
-
-const SomeButton: React.FC<ButtonProps> = props => {
-    const submit = useSubmit()
-
-    return <Button {...props} onClick={submit}></Button>
-}
+import { Submits } from "../../../common/forms/components/Submits"
+import { TextField } from "../../../common/design/components/TextField"
 
 export const LoginModal: FunctionComponent = () => {
     const { authStore } = useStores()
@@ -49,11 +30,18 @@ export const LoginModal: FunctionComponent = () => {
     return (
         <Output>
             <Form onSubmit={handleSignup}>
-                <SomeInput name="email"></SomeInput>
-                <SomeInput name="password"></SomeInput>
+                <TextField<LoginData> name="email" type="email" />
+                <TextField<LoginData> name="password" type="password" />
 
                 <ModalFooter>
-                    <SomeButton>Login</SomeButton>
+                    <Button onClick={dimiss}>Cancel</Button>
+                    <Submits
+                        component={Button}
+                        propName="onClick"
+                        variant="secondary"
+                    >
+                        Login
+                    </Submits>
                 </ModalFooter>
             </Form>
         </Output>

@@ -6,8 +6,9 @@ import { signup, SignupData } from "../actions/signup"
 import { useModalContext } from "../../modals/hooks/useModalOverlay"
 import { Loader } from "../../../common/design/components/Loader"
 import { useLoadingAnimation } from "../../../common/design/hooks/useLoadingAnimation"
-import { Formik, Field, Form } from "formik"
 import { TextField } from "../../../common/design/components/TextField"
+import { useForm } from "../../../common/forms/hooks/useForm"
+import { Submits } from "../../../common/forms/components/Submits"
 
 export const SignupModal: FunctionComponent = () => {
     const { authStore } = useStores()
@@ -25,28 +26,26 @@ export const SignupModal: FunctionComponent = () => {
         username: ""
     }
 
+    const Form = useForm(initialValues)
+
     return (
-        <Formik initialValues={initialValues} onSubmit={handleSignup}>
-            <Form>
-                <Field type="email" name="email">
-                    {TextField}
-                </Field>
-                <Field type="text" name="username">
-                    {TextField}
-                </Field>
-                <Field type="password" name="password">
-                    {TextField}
-                </Field>
+        <Output>
+            <Form onSubmit={handleSignup}>
+                <TextField<SignupData> name="username" type="username" />
+                <TextField<SignupData> name="email" type="email" />
+                <TextField<SignupData> name="password" type="password" />
 
                 <ModalFooter>
-                    <Output>
-                        <Button onClick={dimiss}>Cancel</Button>
-                        <Button type="submit" variant="secondary">
-                            Signup
-                        </Button>
-                    </Output>
+                    <Button onClick={dimiss}>Cancel</Button>
+                    <Submits
+                        component={Button}
+                        propName="onClick"
+                        variant="secondary"
+                    >
+                        Signup
+                    </Submits>
                 </ModalFooter>
             </Form>
-        </Formik>
+        </Output>
     )
 }

@@ -25,4 +25,8 @@ export interface Theme {
         spacing: string
         borderRaduis: string
     }
+    brightnesses: {
+        lighter: number
+        darker: number
+    }
 }
