@@ -45,6 +45,3 @@ export class IsomorphicStorage<T extends Record<string, unknown>> {
         return this
     }
 }
-
-// @ts-ignore
-window.IsomorphicStorage = IsomorphicStorage
