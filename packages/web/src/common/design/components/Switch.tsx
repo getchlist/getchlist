@@ -4,7 +4,11 @@ import { Theme } from "../../../modules/theming/types/Theme"
 
 const size = 30
 
+<<<<<<< HEAD
 interface CheckboxProp {
+=======
+interface checkboxProps {
+>>>>>>> parent of e2e5246... Update packages/web/src/common/design/components/Switch.tsx
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     variant?: keyof Theme["colors"]
 }
